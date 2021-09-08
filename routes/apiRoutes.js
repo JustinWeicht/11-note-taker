@@ -10,10 +10,10 @@ router.get('/notes', (req, res) => {
 
 // post new note
 router.post('/notes', (req, res) => {
-    const postNote = req.body;
-    postNote.id = uuidv4();
+    const saveNote = req.body;
+    saveNote.id = uuidv4();
     const db = JSON.parse(fs.readFileSync('db/db.json'));
-    db.push(postNote);
+    db.push(saveNote);
     fs.writeFileSync('db/db.json', JSON.stringify(db));
     res.json(db);
 })
